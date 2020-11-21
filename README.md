@@ -1,3 +1,5 @@
+This is a fork of the original. It adds unity PackageManager support. **You can add this system to your Unity using "Add package from GIT URL..."** in the Package Manager and this url... `https://github.com/godjammit/command_terminal.git#package_manager`
+
 Unity Command Terminal
 ======================
 
