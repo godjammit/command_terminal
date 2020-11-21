@@ -132,11 +132,6 @@ namespace CommandTerminal
         }
 
         void OnEnable() {
-            Buffer = new CommandLog(BufferSize);
-            Shell = new CommandShell();
-            History = new CommandHistory();
-            Autocomplete = new CommandAutocomplete();
-
             // Hook Unity log events
             Application.logMessageReceivedThreaded += HandleUnityLog;
         }
@@ -145,7 +140,12 @@ namespace CommandTerminal
             Application.logMessageReceivedThreaded -= HandleUnityLog;
         }
 
-        void Start() {
+        void Awake() {
+            Buffer = new CommandLog(BufferSize);
+            Shell = new CommandShell();
+            History = new CommandHistory();
+            Autocomplete = new CommandAutocomplete();
+        
             if (ConsoleFont == null) {
                 ConsoleFont = Font.CreateDynamicFontFromOSFont("Courier New", 16);
                 Debug.LogWarning("Command Console Warning: Please assign a font.");
